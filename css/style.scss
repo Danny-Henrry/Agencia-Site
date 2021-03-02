@@ -1,0 +1,877 @@
+//importações
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+
+//formatação
+*{
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto',sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+//Classer gerais
+.container{
+    max-width: 1200px;
+    padding: 0 2%;
+    margin: 0 auto;
+}
+
+//variaveis
+$orange: rgb(255, 104, 44);
+$orange-dark: rgb(224, 83, 26);
+$metal-aqua: #6a7c92;
+
+//Header
+header{
+    width: 100%;
+    background: url("../images/bg.jpg") no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+
+    nav{
+        width: 100%;
+        padding: 40px 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo{
+            position: relative;
+            z-index: 20;
+        }
+
+        .toggle{
+            display:none;
+        }
+
+        ul.mobile{
+            display: none;
+        }
+
+        ul{
+            list-style-type: none;
+            display: inline-block;
+
+            li{
+                display: inline-block;
+                margin-right: 40px;
+                font-weight: 300;
+                a{
+                    color: white;
+                    text-decoration: none;
+                }
+
+                &:last-child{
+                    a{
+                        transition: all 200ms ease-out 0s;
+                        text-transform: uppercase;
+                        font-size: 15px;
+                        padding: 8px 20px;
+                        border-radius: 50px;
+                        border: 1px solid white;
+
+                        &:hover{
+                            background-color:white;
+                            color: $orange;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .banner{
+        padding: 200px 0px;
+        display: flex;
+        justify-content:flex-start;
+        align-items: center;
+        width: 100%;
+        max-width: 650px;
+
+        h2{
+            color: white;
+            font-size:60px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        p{
+            color: white;
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 2rem;
+            margin-bottom: 20px;
+        }
+
+        form{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            input{
+                padding: 15px 10px 15px 40px;
+                background-color: white;
+                font-size: 17px;
+                border-radius: 100px;
+                border: none;
+                outline: none;
+
+                &::placeholder{
+                    color: #ccc;
+                }
+
+                &:first-child{
+                    margin-right: 20px;
+                    width: 100%;
+                    max-width: 325px;
+                }
+
+                &:last-child{
+                    transition: all 350ms ease-out 0s;
+                    background-color: $orange;
+                    text-align: center;
+                    padding-right: 40px;
+                    color: white;
+                    text-transform: uppercase;
+                    cursor: pointer;
+
+                    &:hover{
+                        background-color: $orange-dark;
+                    }
+                }
+            }
+        }
+    }
+}
+
+section.resenha{
+    padding: 80px 4%;
+    .container{
+        text-align: center;
+        h3{
+            margin: 0 auto;
+            max-width: 860px;
+            color: $metal-aqua;
+            font-size: 1.7rem;
+            font-weight: 300;
+            Strong{
+                font-size: bold;
+            }
+        }
+    }
+}
+
+section.descricao-danki{
+    padding: 40px 2%;
+    .container{
+        display:flex;
+        justify-content:space-between;
+        align-items: center;
+
+        .detalhes{
+            text-align:left;
+            width: 55%;
+            padding-right: 30px;
+            h2{
+                margin-bottom: 20px;
+                color: $metal-aqua;
+                line-height: 2rem;
+            }
+
+            p{
+                color: $metal-aqua;
+                font-weight: 400;
+                font-size:0.9rem;
+                line-height: 1.7rem;
+            }
+        }
+
+        .project-client{
+            width: 45%;
+            img{
+                width: 90%;
+                object-fit:contain;
+                object-position: center;
+            }
+        }
+    }
+}
+
+section.depoimento-client {
+    padding: 20px 0px 170px 0px;
+    .container{
+        position: relative;
+        img{
+            width: 100%;
+        }
+        .depoimento{
+            width: 45%;
+            padding: 50px;
+            background-color: white;
+            position: absolute;
+            bottom: -80px;
+            right: 100px;
+            box-shadow: 0px 8px 60px 0px rgba(95,95,95,0.2);
+            h4{
+                color: $metal-aqua;
+                font-weight: 300;
+                font-size:1.1rem;
+                line-height: 1.7rem;
+            }
+
+            small{
+                font-weight: bold;
+                color: $metal-aqua;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
+@keyframes balance {
+    100%{
+        top: 200%;
+    }
+}
+
+section.servicos {
+    padding: 40px 0px 50px 0px;
+    .container {
+        .text_with_arrow{
+            text-align: center;
+            color: $metal-aqua;
+            font-size: 2rem;
+            position: relative;
+
+            &::after{
+                content:'';
+                width: 20px;
+                height:3px;
+                background: $metal-aqua;
+                position: absolute;
+                top: 155%;
+                left: 50%;
+                animation: 1s balance ease-out 0s alternate infinite;
+                transform: translate(-60%, -50%) rotate(40deg);
+            }
+            
+            &::before{
+                content:'';
+                width: 20px;
+                height: 3px;
+                background: $metal-aqua;
+                position: absolute;
+                top: 155%;
+                left: 50%;
+                animation: 1s balance ease-out 0s alternate infinite;
+                transform: translate(10%,-50%) rotate(-40deg);
+            }
+        }
+
+        .servicos-cards{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction:row;
+            margin-top: 100px;
+
+            .card{
+                cursor: pointer;
+                transition: all 300ms ease 0s;
+                width: calc(95% / 3);
+                background: white;
+                border-radius: 5px;
+                box-shadow:0px 4px 70px -20px rgba(0, 0, 0, 0.205);
+                overflow: hidden;
+                margin-bottom: 30px;
+                
+                .img-card {
+                    width: 100%;
+                    padding: 24%;
+                    background: url('../images/img3.jpg') no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                }
+                &:nth-of-type(2){
+                    .img-card {
+                        background: url('../images/img1.jpg') no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                    }
+                }
+                &:nth-of-type(3){
+                    .img-card {
+                        background: url('../images/img2.jpg') no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                    }
+                }
+                &:nth-of-type(4){
+                    .img-card {
+                        background: url('../images/img4.jpg') no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                    }
+                }
+                &:nth-of-type(5){
+                    .img-card {
+                        background: url('../images/img5.jpg') no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                    }
+                }
+                &:nth-of-type(6){
+                    .img-card {
+                        background: url('../images/img6.jpg') no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                    }
+                }
+
+                .content-card{
+                    padding: 20px;
+                    h3{
+                        color: $metal-aqua;
+                        font-size: 23px;
+                        font-weight: 400;
+                        margin-bottom: 10px;
+                    }
+
+                    p{
+                        color: $metal-aqua;
+                        font-size:15px;
+                        line-height: 1.33rem;
+                        font-weight:300;
+                    }
+                    a{
+                        transition: all 250ms ease-out 0s;
+                        color: $metal-aqua;
+                        text-decoration: none;
+                        font-weight: 300px;
+                        padding: 10px 14px;
+                        font-size: 13px;
+                        margin-top: 20px;
+                        display: inline-block;
+                        text-transform: uppercase;
+                        border: 1px solid $metal-aqua;
+                        border-radius: 40px;
+
+                        &:hover{
+                            background: $metal-aqua;
+                            color: white;
+                        }
+                    }
+                }
+
+                &:hover{
+                    box-shadow: none;
+                    transform: translateY(3px);
+                }
+            }
+        }
+    }
+}
+
+section.empresas{
+    height: 300px;
+    .container{
+        background: #f6f6f6;
+        padding: 40px;
+        height: 90%;
+        h2{
+            color: $metal-aqua;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 25px;
+            font-weight: 400;
+        }
+        
+        .empresas-client{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            height: 70%;
+
+            .area-logo-client{
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-right: 1px solid #ccc;
+                border-left: 1px solid #ccc;
+                padding: 2% 7%;
+
+                img{
+                    width: 100%;
+                }
+
+                &:first-child{
+                    border: none;
+                }
+
+                &:nth-of-type(3){
+                    border: none;
+                }
+
+                &:last-child{
+                    border-right: none;
+                }
+            }
+        }
+    }
+}
+
+section.formulario{
+    padding: 40px 0px;
+    .container{
+        h2{
+            color: $metal-aqua;
+            font-size:21px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form{
+            form{
+                text-align: right;
+                .space-form{
+                    position: relative;
+                    margin: 10px 0px;
+                    right: 250px;
+                    label{
+                        margin-right: 20px;
+                        font-variant: small-caps;
+                        color: $metal-aqua;
+                    }
+                    input,select,textarea{
+                        border-radius: 40px;
+                        border: 1px solid rgb(207, 207, 207);
+                        padding: 10px 20px 10px 10px;
+                        outline: none;
+                        width: 100%;
+                        max-width: 400px;
+                        display: inline-block;
+
+                        &::placeholder{
+                            color: #ccc;
+                        }
+                    }
+
+                    select{
+                        appearance: none;
+                        position: relative;
+
+                        &::after{
+                            content:'';
+                            width: 5px;
+                            height: 5px;
+                            background-color: #ccc;
+                            position: absolute;
+                            top: 10px;
+                            right: 10px;
+                            z-index: 100;
+                        }
+                    }
+
+                    textarea{
+                        border-radius: 20px;
+                        height: 140px;
+                        resize:none;
+                        overflow: auto;
+                    }
+
+                    &:nth-of-type(5){
+                        label{
+                          position: relative;
+                          top: -108px;
+                          left: 0px;
+                        }
+                    }
+
+                    input[type="submit"]{
+                        border-radius: 40px;
+                        background-color: $orange;
+                        border: none;
+                        color: white;
+                        display: inline-block;
+                        width: 100%;
+                        max-width: 150px;
+                        padding: 15px 25px;
+                        position: relative;
+                        margin-top: 20px;
+                        right: 200px;
+                        box-shadow: 0px 3px 10px -20px orangered;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer{
+    padding: 40px 0px;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .endereco, .contato, .news{
+            margin-bottom: 30px;
+            h2{
+                margin-bottom: 10px;
+                color: $metal-aqua;
+            }
+
+            p{
+                color: $metal-aqua;
+            }
+        }
+
+        .news{
+            align-self: flex-start;
+            input,button{
+                border: 1px solid #ccc;
+                padding: 10px 20px;
+                border-radius: 40px;
+                outline: none;
+                &::placeholder{
+                    color: #ccc;
+                }
+            }
+
+            button{
+                background: $orange;
+                color: white;
+                border: none;
+            }
+        }
+    }
+
+    .social{
+        width: 100%;
+        border-top: 1px solid #ccc;
+        padding-top: 30px;
+        text-align: center;
+
+        a{
+            color: $metal-aqua;
+        }
+    }
+}
+//Media queries ==========>
+
+@media screen and (max-width:950px){
+    
+    section.formulario{
+        .container{
+            .form{
+                form{
+                    .space-form{
+                        right: 150px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width:768px){
+
+    header{
+        nav{
+            .toggle{
+                transition: all 300ms ease-out 0s;
+                width: 60px;
+                height: 45px;
+                position: absolute;
+                right: 1.5rem;
+                top: 1.5rem;
+                z-index: 20;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: flex-end;
+
+                .line{
+                    transition: all 300ms ease-out 0s;
+                    background: white;
+                    width: 100%;
+                    height: 5px;
+                    border-radius: 20px;
+
+                    &:first-child{
+                        width: 50%;
+                    }
+
+                    &:first-child{
+                        background-color:$orange;
+                    }
+                }
+            }
+
+            .t-active{
+                .line{
+                    height: 8px;
+                    &:first-child{
+                        width: 100%;
+                        transform: translate(0px, 20px) rotate(40deg);
+                    }
+
+                    &:nth-child(2){
+                        opacity: 0;
+                    }
+
+                    &:last-child{
+                        transform: translate(0px, -11px) rotate(-40deg);
+                    }
+                }
+            }
+
+            ul.desktop{
+                display: none;
+            }
+
+            ul.mobile{
+                box-shadow: 0px 20px 57px 50px #0000008c;
+                transition: all 300ms ease-out 0s;
+                display: block;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                opacity: 0;
+                width: 100%;
+                background-color: $metal-aqua;
+                padding: 40px 4%;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                height: 110px;
+                
+                li{
+                    margin-right: 0px;
+                    margin-bottom: 20px;
+
+                    &:nth-of-type(1){
+                        margin-top: 70px;
+                    }
+
+                    &:nth-of-type(3){
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+
+            ul.mobile.active-ul{
+                opacity: 1;
+                height: 45%;
+            }
+        }
+        .banner{
+            max-width: none;
+            padding: 70px 0px;
+            text-align: center;
+            h2{
+                font-size: 2rem;
+            }
+            p{
+                font-size: 1.2rem;
+            }
+            form{
+                flex-direction: column;
+                input{
+                    font-size: 14px;
+                    
+                    &:first-child{
+                        margin-right: 0px;
+                    }
+
+                    &:last-child{
+                        margin-top:10px;
+                    }
+                }
+            }
+        }
+    }
+
+    section.resenha{
+        padding: 30px 2%;
+        .container{
+            h3{
+                font-size: 1rem;
+            }
+        }
+    }
+
+    section.descricao-danki{
+        padding-top: 0px;
+        .container{
+            flex-direction: column;
+            .detalhes{
+                width: 100%;
+                padding-right: 0px;
+                margin-bottom: 20px;
+                
+                h2{
+                    font-size: 1.4rem;
+                }
+                
+                p{
+                    font-size: 1rem;
+                    line-height:1.9rem;
+                }
+            }
+            
+            .project-client{
+                order: -1;
+                width: 100%;
+                text-align: center;
+                img{
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    section.depoimento-client{
+        .container{
+            
+            img{
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+
+            position: relative;
+            .depoimento{
+                width: 100%;
+                position: relative;
+                z-index: 100;
+                right: 0px;
+                h4{
+                    font-size:0.9rem;
+                }
+                small{
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+
+    section.servicos{
+        .container{
+            .servicos-cards{
+                .card{
+                    width: calc(95% / 2);
+                }
+            }
+        }
+    }
+
+    section.empresas{
+        .container{
+            .empresas-client{
+                .area-logo-client{
+                    padding: 1% 2%;
+                }
+            }
+        }
+    }
+
+    section.formulario{
+        .container{
+            .form{
+                form{
+                    .space-form{
+                        text-align: center;
+                        position: static;
+                        input{
+                            width: 70%;
+                            max-width: none;
+                        }
+                      
+                        label{
+                            display: block;
+                        }
+
+                        &:nth-of-type(5){
+                            label{
+                                position: static;
+                            }
+                        }
+
+                        input[type="submit"]{
+                            position: static;
+                        }
+                    
+                    }
+                }
+            }
+        }
+    }
+
+    footer{
+        .container{
+            flex-direction: column;
+            text-align: center;
+
+            .news{
+                align-self: center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:480px){
+
+    section.servicos{
+        .container{
+            .servicos-cards{
+                .card{
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    section.empresas{
+        height: auto;
+        .container{
+            .empresas-client{
+                border: none;
+                flex-direction: column;
+                .area-logo-client{
+                    border: none;
+                    padding: 1% 2%;
+                    padding-bottom: 20px;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width:320px){
+
+    section.depoimento-client{
+        .container{
+            .depoimento{
+                h4{
+                    font-size: 0.8rem;
+                    line-height: 1.1rem;
+                }
+            }
+        }
+    }
+
+}
